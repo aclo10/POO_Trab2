@@ -1,0 +1,56 @@
+public class Revista implements Item {
+	private String nome;
+	private String editora;
+	private String codigo;
+	private String semana;
+	private boolean livre;
+
+	public Revista(String _nome, String _codigo, String _editora, String _semana) {
+		this.nome = _nome;
+		this.codigo = _codigo;
+		this.editora = _editora;
+		this.semana = _semana;
+		this.livre = true;
+	}
+
+	public boolean getSituacao() {
+		return this.livre;
+	} 
+
+	public void aluga() {
+		this.livre = false;
+	}
+
+	public void libera() {
+		this.livre = true;
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if(o instanceof Revista) {
+			if((Revista)o.getNome() == this.nome && (Revista)o.getCodigo() == this.codigo
+			 && (Revista)o.getEditora() == this.editora && (Revista)o.getSemana() == this.semana) {
+				return true
+			}
+		}
+		return false;
+	}
+
+	// getters
+
+	public String getNome() {
+		return this.nome;
+	}
+
+	public String getCodigo() {
+		return this.codigo;
+	}
+
+	public String getEditora() {
+		return this.editora;
+	}
+
+	public String getSemana() {
+		return this.semana;
+	}
+}
