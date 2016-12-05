@@ -1,5 +1,12 @@
-import java.util.Scanner;
-
-public class Controlador {
-}
+public class Controle{
+	public static void main(String[] args) {
+  
+		Visao visao = new Visao();
+		visao.devolucaoSucedida();
+		String nomeLivro = visao.pegaNome("Item");
+		String codigo = "1234";
+		String editora = "qualquer";
+		Biblioteca bib = new Biblioteca();
+		bib.cadastrarItem(nomeLivro, codigo, editora); 
+	}
 }
