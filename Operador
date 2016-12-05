@@ -1,0 +1,14 @@
+public class Operador extends Usuario {
+
+	public Operador(String _matricula, String _nome) {
+		super(_matricula, _nome);
+	}
+
+	public Livro cadastraItem(String _nome, String _codigo, String _editora) {
+		return new Livro(_nome, _codigo, _editora);
+	}
+
+	public Revista cadastraItem(String _revista, String _codigo, String _editora, String _semana) {
+		return new Revista(_revista, _codigo, _editora, _semana);
+	}
+}
