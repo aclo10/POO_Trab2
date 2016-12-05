@@ -1,0 +1,7 @@
+public interface Item {
+
+	public boolean getSituacao();
+	public void aluga();
+	public void libera();
+	public boolean equals(Object o);
+}
