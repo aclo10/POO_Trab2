@@ -1,0 +1,66 @@
+public class Usuario {
+	protected String matricula;
+	protected String nome;
+	protected Item[] itensAlugados;
+	protected int quantAlugados;
+	protected int tamanhoMax;
+
+	public Usuario(String _matricula, String _nome) {
+		this.nome = _nome;
+		this.matricula = _matricula;
+		this.tamanhoMax = 10;
+		itensAlugados = new Item[this.tamanhoMax];
+		this.quantAlugados = -1;
+	}
+
+	public void mudarTamanho(int _offset) {
+		this.tamanhoMax+= _offset;
+		Item[] aux = new Item[this.tamanhoMax];
+		for(int i = 0; i <= this.quantAlugados; i++) {
+			aux[i] = this.itensAlugados[i];
+		}
+		itensAlugados = aux;
+	}
+
+	public boolean consultarItem(Item _item) {
+		return _item.getSituacao();
+	}
+
+	public void locarItem(Item _item) {
+		if(this.quantAlugados < this.tamanhoMax && this.consultarItem(_item)) {
+			_item.aluga();
+			this.quantAlugados++;
+			this.itensAlugados[this.quantAlugados] = _item;
+		}
+	}
+
+	public void devolverItem(Item _item) {
+		if(this.quantAlugados >= 0) {
+			for(int i = 0; i < this.quantAlugados; i++) {
+				if(_item.equals(this.itensAlugados[i])) {
+					for(int j = i; j < this.quantAlugados-1; j++) {
+						this.itensAlugados[j] = this.itensAlugados[j+1];
+					}
+					_item.libera();
+					this.quantAlugados--;
+				}
+			}
+		}
+	}
+
+	public Item[] procurarItem(Item[] _item, String _titulo) {
+		Item[] itensEncontrados = new Item[20];
+		int posicao = 0;
+		for(int i = 0 ; i < _item.length; i++) {
+			if(_item[i].getNome() == _titulo) {
+				itensEncontrados[posicao] = _item[i];
+				posicao++;
+			}
+		}
+		Item[] itensEnc = new Item[posicao+1];
+		for(int i = 0; i <= posicao; i++) {
+			itensEnc[i] = itensEncontrados[i];
+		}
+		return itensEnc;
+	}
+}
