@@ -1,0 +1,53 @@
+public class Livro implements Item {
+	
+	private String titulo;
+	private String codigo;
+	private String editora;
+	private boolean livre; 
+
+	public Livro(String _titulo, String _codigo, String _editora) {
+		this.titulo = _titulo;
+		this.codigo = _codigo;
+		this.editora = _editora;
+		this.livre = true;
+	}
+
+	public boolean getSituacao() {
+		return this.livre;
+	} 
+
+	public void aluga() {
+		this.livre = false;
+	}
+
+	public void libera() {
+		this.livre = true;
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if(o instanceof Livro) {
+			if((Livro)o.getTitulo() == this.titulo && (Livro)o.getCodigo() == this.codigo
+			&& (Livro)o.getEditora() == this.editora) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public String getTitulo() {
+		return this.titulo;
+	}
+
+	public String getCodigo() {
+		return this.codigo;
+	}
+
+	public String getEditora() {
+		return this.editora;
+	}
+
+	public String getNome() {
+		return this.titulo;
+	}
+}
