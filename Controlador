@@ -1,4 +1,4 @@
-public class Controle{
+public class Controleador{
 	public static void main(String[] args) {
   
 		Visao visao = new Visao();
