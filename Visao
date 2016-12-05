@@ -1,6 +1,14 @@
-import java.util.Scanner;
+import java.util.scanner;
 
-public class Visao {
-  "Devoluçao ocorrida com sucesso"
-}
+public class Visao{
+	public Visao(){}
+
+	public void devolucaoSucedida() {
+		System.out.println("Devolução efetuada com sucesso\n");
+	}
+
+	public String pegaNome(String tipo) {
+		System.out.println("Informe o nome do "+tipo+" a ser cadastrado");
+		return input.next();
+	}
 }
